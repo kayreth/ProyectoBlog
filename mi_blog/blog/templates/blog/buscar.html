@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+<h2>{{ titulo }}</h2>
+
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultados %}
+    <h3>Resultados:</h3>
+    <ul>
+        {% for receta in resultados %}
+            <li>
+                <strong>{{ receta.titulo }}</strong><br>
+                Autor: {{ receta.autor }}<br>
+                Fecha: {{ receta.fecha }}<br>
+                Tipo de comida: {{ receta.tipocomida }}<br>
+                <strong>Contenido:</strong><br>
+                <p>{{ receta.contenido|linebreaks }}</p>
+                <hr>
+            </li>
+        {% empty %}
+            <li>No se encontraron recetas con ese título.</li>
+        {% endfor %}
+        </ul>
+{% endif %}
+{% endblock %}

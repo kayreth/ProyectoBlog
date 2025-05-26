@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+<h2>{{ titulo }}</h2>
+
+{% if posts %}
+    <ul>
+    {% for post in posts %}
+        <li>
+            <strong>{{ post.titulo }}</strong><br>
+            Autor: {{ post.autor }} | Categoría: {{ post.categoria }} | Fecha: {{ post.fecha }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay posts creados aún.</p>
+{% endif %}
+{% endblock %}

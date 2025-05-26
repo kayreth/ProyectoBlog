@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Mi Blog{% endblock %}</title>
+</head>
+<body>
+    <h1>Blog de Recetas</h1>
+    <nav>
+        <a href="{% url 'home' %}">Inicio</a> |
+        <a href="{% url 'crear_receta' %}">Nueva Receta</a> |
+        <a href="{% url 'crear_autor' %}">Crear Autor</a> |
+        <a href="{% url 'crear_tipo' %}">Crear Tipo de Receta</a> |
+        <a href="{% url 'buscar_receta' %}">Buscar Receta</a> |
+        <a href="{% url 'listar_recetas' %}">Ver Listado de Recetas Creadas</a> |
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
